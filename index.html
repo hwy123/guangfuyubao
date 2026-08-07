@@ -404,9 +404,9 @@ function renderAuxCharts() {
     var hh = parseInt(t.substring(11,13));
     var d = t.substring(0,10);
     var mm = parseInt(t.substring(14,16));
-    if (hh * 60 + mm < 20 * 60) {
+    if (hh * 60 + mm >= 20 * 60) {
       var parts = d.split('-');
-      var nd = new Date(Date.UTC(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]) - 1));
+      var nd = new Date(Date.UTC(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]) + 1));
       d = nd.toISOString().substring(0,10);
     }
     if (d !== curDay) { curDay = d; dailyDays.push(d); }
